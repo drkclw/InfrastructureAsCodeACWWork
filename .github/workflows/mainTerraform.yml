@@ -34,7 +34,7 @@ jobs:
     - run: |
         echo ${{ github.workspace }}
         echo $GITHUB_WORKSPACE
-        ls ${{ github.workspace }}
+        ls ${{ github.workspace }}/iac
 
     # Install the latest version of the Terraform CLI
     - name: Setup Terraform
