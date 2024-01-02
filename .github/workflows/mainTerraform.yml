@@ -31,6 +31,9 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v4
+    - run: |
+        echo ${{ github.workspace }}
+        echo $GITHUB_WORKSPAC
 
     # Install the latest version of the Terraform CLI
     - name: Setup Terraform
