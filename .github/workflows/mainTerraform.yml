@@ -51,7 +51,7 @@ jobs:
     # An exit code of 0 indicated no changes, 1 a terraform failure, 2 there are pending changes.
     - name: Terraform Plan
       id: tf-plan
-      working-directory: ${{ github.workspace }}/iac
+      working-directory: ${{ github.workspace }}/iac/terraform/part2
       run: |
         export exitcode=0
         terraform plan -detailed-exitcode -no-color -out tfplan || export exitcode=$?
@@ -115,7 +115,7 @@ jobs:
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
-      working-directory: ${{ github.workspace }}/iac
+      working-directory: ${{ github.workspace }}/iac/terraform/Part2
 
     # Download saved plan from artifacts  
     - name: Download Terraform Plan
@@ -126,4 +126,4 @@ jobs:
     # Terraform Apply
     - name: Terraform Apply
       run: terraform apply -auto-approve tfplan
-      working-directory: ${{ github.workspace }}/iac
+      working-directory: ${{ github.workspace }}/iac/terraform/Part2
