@@ -130,5 +130,5 @@ jobs:
 
     # Terraform Apply
     - name: Terraform Apply
-      run: terraform apply -auto-approve tfplan
       working-directory: ${{ github.workspace }}/iac/terraform/Part2
+      run: terraform apply -auto-approve tfplan      
