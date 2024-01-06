@@ -23,7 +23,7 @@ resource "azurerm_mssql_firewall_rule" "allowAzureServices" {
 }
 
 resource "azurerm_mssql_firewall_rule" "allowClientMachine" {
-  name             = "AllowAzureServices"
+  name             = "AllowClientMachine"
   server_id        = azurerm_mssql_server.cm_sql_server.id
   start_ip_address = var.clientIpAddress
   end_ip_address   = var.clientIpAddress
