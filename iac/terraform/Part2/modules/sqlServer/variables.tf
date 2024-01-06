@@ -1,10 +1,10 @@
-variable "resource_group_name" {
-    type = string
+variable "resourceGroupName" {
+    type     = string
     nullable = false
 }
 
 variable "location" {
-    type = string
+    type     = string
     nullable = false
 }
 
