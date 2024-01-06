@@ -1,7 +1,7 @@
 resource_group_name = "ContactWebApplicationRG"
 location            = "eastus"
 clientIpAddress     = "50.223.144.82"
-sqlServerName       = "contactwebdbserverTerraform"
+sqlServerName       = "contactwebdbserverterraform"
 sqlServerAdmin      = "contactwebdbuser" 
 sqlServerPwd        = "workshopDbPwd#54321!"
 sqlDatabaseName     = "ContactWebDB"
