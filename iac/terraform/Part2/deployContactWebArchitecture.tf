@@ -24,3 +24,12 @@ module "logAnalyticsWorkspace" {
   location                  = azurerm_resource_group.rg-contact-web-application.location
   logAnalyticsWorkSpaceName = var.logAnalyticsWorkSpaceName
 }
+
+module "applicationInsights" {
+  source = "./modules/appInsights"
+
+  resourceGroupName         = azurerm_resource_group.rg-contact-web-application.name
+  location                  = azurerm_resource_group.rg-contact-web-application.location
+  logAnalyticsWorkspaceId   = module.logAnalyticsWorkspace.logAnalyticsWorkspaceId
+  appInsightsName           = var.appInsightsName 
+}

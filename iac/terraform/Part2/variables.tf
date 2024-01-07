@@ -52,3 +52,8 @@ variable "logAnalyticsWorkSpaceName" {
     type = string
     nullable = false
 }
+
+variable "appInsightsName" {
+    type     = string
+    nullable = false
+}
