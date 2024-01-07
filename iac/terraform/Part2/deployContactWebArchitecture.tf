@@ -16,3 +16,11 @@ module "sqlServer" {
   sqlDbSkuName      = var.sqlDbSkuName
   uniqueIdentifier  = var.uniqueIdentifier
 }
+
+module "logAnalyticsWorkspace" {
+  source = "./modules/logAnalitycsWorkspace"
+
+  resourceGroupName         = azurerm_resource_group.rg-contact-web-application.name
+  location                  = azurerm_resource_group.rg-contact-web-application.location
+  logAnalyticsWorkSpaceName = var.logAnalyticsWorkSpaceName
+}

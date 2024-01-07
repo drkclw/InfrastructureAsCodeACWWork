@@ -47,3 +47,8 @@ variable "sqlDbSkuName" {
       error_message = "Only SKU allowed for DB is 'Basic'"
     }
 }
+
+variable "logAnalyticsWorkSpaceName" {
+    type = string
+    nullable = false
+}
