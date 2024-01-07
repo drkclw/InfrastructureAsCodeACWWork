@@ -18,7 +18,7 @@ module "sqlServer" {
 }
 
 module "logAnalyticsWorkspace" {
-  source = "./modules/logAnalitycsWorkspace"
+  source = "./modules/logAnalyticscsWorkspace"
 
   resourceGroupName         = azurerm_resource_group.rg-contact-web-application.name
   location                  = azurerm_resource_group.rg-contact-web-application.location
