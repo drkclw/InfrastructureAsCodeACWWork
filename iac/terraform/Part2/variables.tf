@@ -19,8 +19,9 @@ variable "sqlServerAdmin" {
 }
 
 variable "sqlServerPwd" {
-    type     = string
-    nullable = false
+    type      = string
+    nullable  = false
+    sensitive = true
 }
 
 variable "sqlDatabaseName" {
