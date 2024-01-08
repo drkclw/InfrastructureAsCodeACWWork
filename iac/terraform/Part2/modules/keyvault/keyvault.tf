@@ -1,6 +1,6 @@
 data "azurerm_client_config" "current" {}
 
-data "azurerm_sql_server" "cm_sql_server" {
+data "azurerm_mssql_server" "cm_sql_server" {
   resource_group_name = var.resourceGroupName
   name                = var.sqlServerName 
 }
