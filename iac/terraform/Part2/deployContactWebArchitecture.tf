@@ -33,3 +33,13 @@ module "applicationInsights" {
   logAnalyticsWorkspaceId   = module.logAnalyticsWorkspace.logAnalyticsWorkspaceId
   appInsightsName           = var.appInsightsName 
 }
+
+module "keyvault" {
+  source = "./modules/keyvault"
+
+  resourceGroupName = azurerm_resource_group.rg-contact-web-application.name
+  location          = azurerm_resource_group.rg-contact-web-application.location
+  sqlServerName     = var.sqlServerName
+  sqlServerPwd      = var.sqlServerPwd
+  sqlDatabaseName   = var.sqlDatabaseName
+}
