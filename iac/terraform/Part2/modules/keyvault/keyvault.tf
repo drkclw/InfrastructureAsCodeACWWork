@@ -10,7 +10,7 @@ locals {
 }
 
 resource "azurerm_key_vault" "cm_kv" {
-  name                            = "${keyVaultName}${uniqueIdentifier}"
+  name                            = "${var.keyVaultName}${var.uniqueIdentifier}"
   location                        = var.location
   resource_group_name             = var.resourceGroupName
   tenant_id                       = data.azurerm_client_config.current.tenant_id

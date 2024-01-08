@@ -58,3 +58,8 @@ variable "appInsightsName" {
     type     = string
     nullable = false
 }
+
+variable "keyVaultName" {
+    type      = string
+    nullable  = false
+}

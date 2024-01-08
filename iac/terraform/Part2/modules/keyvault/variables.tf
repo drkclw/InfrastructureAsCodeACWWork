@@ -23,3 +23,13 @@ variable "sqlDatabaseName" {
     type     = string
     nullable = false
 }
+
+variable "keyVaultName" {
+    type      = string
+    nullable  = false
+}
+
+variable "uniqueIdentifier" {
+    type      = string
+    nullable  = false
+}

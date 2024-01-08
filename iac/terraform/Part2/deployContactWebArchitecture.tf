@@ -42,4 +42,6 @@ module "keyvault" {
   sqlServerName     = var.sqlServerName
   sqlServerPwd      = var.sqlServerPwd
   sqlDatabaseName   = var.sqlDatabaseName
+  uniqueIdentifier  = var.uniqueIdentifier
+  keyVaultName      = var.keyVaultName
 }
