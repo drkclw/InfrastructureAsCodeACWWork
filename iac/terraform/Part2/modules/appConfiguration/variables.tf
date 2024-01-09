@@ -8,19 +8,9 @@ variable "location" {
     nullable = false
 }
 
-variable "appInsightsName" {
-    type     = string
-    nullable = false
-}
-
 variable "uniqueIdentifier" {
-    type     = string
-    nullable = false
-}
-
-variable "appServicePlanName" {
-    type     = string
-    nullable = false
+    type      = string
+    nullable  = false
 }
 
 variable "webAppName" {
@@ -28,22 +18,22 @@ variable "webAppName" {
     nullable = false
 }
 
-variable "defaultDBSecretURI" {
+variable "appConfigStoreName" {
     type     = string
     nullable = false
 }
 
-variable "managerDBSecretURI" {
+variable "identityDbSecretURI" {
+    type     = string
+    nullable = false
+}
+
+variable "managerDbSecretURI" {
     type     = string
     nullable = false
 }
 
 variable "keyVaultId" {
-    type     = string
-    nullable = false
-}
-
-variable "appConfigConnection" {
     type     = string
     nullable = false
 }

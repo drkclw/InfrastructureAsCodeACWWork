@@ -73,3 +73,8 @@ variable "webAppName" {
     type     = string
     nullable = false
 }
+
+variable "appConfigStoreName" {
+    type     = string
+    nullable = false
+}

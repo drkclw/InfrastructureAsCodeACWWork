@@ -49,13 +49,27 @@ module "keyvault" {
 module "appService" {
   source = "./modules/appService"
 
-  resourceGroupName  = azurerm_resource_group.rg-contact-web-application.name
-  location           = azurerm_resource_group.rg-contact-web-application.location
-  appInsightsName    = var.appInsightsName
-  uniqueIdentifier   = var.uniqueIdentifier
-  appServicePlanName = var.appServicePlanName
-  webAppName         = var.webAppName
-  defaultDBSecretURI = module.keyvault.identityDBConnectionSecretURI
-  managerDBSecretURI = module.keyvault.managerDBConnectionSecretURI
-  keyVaultId         = module.keyvault.keyVaultId
+  resourceGroupName   = azurerm_resource_group.rg-contact-web-application.name
+  location            = azurerm_resource_group.rg-contact-web-application.location
+  appInsightsName     = var.appInsightsName
+  uniqueIdentifier    = var.uniqueIdentifier
+  appServicePlanName  = var.appServicePlanName
+  webAppName          = var.webAppName
+  defaultDBSecretURI  = module.keyvault.identityDBConnectionSecretURI
+  managerDBSecretURI  = module.keyvault.managerDBConnectionSecretURI
+  keyVaultId          = module.keyvault.keyVaultId
+  appConfigConnection = module.appConfiguration.appConfigEndpoint
+}
+
+module "appConfiguration" {
+  source = "./modules/appConfiguration"
+
+  resourceGroupName    = azurerm_resource_group.rg-contact-web-application.name
+  location             = azurerm_resource_group.rg-contact-web-application.location  
+  uniqueIdentifier     = var.uniqueIdentifier
+  webAppName           = var.webAppName
+  identityDbSecretURI  = module.keyvault.identityDBConnectionSecretURI
+  managerDbSecretURI   = module.keyvault.managerDBConnectionSecretURI
+  keyVaultId           = module.keyvault.keyVaultId
+  appConfigStoreName   = var.appConfigStoreName
 }
