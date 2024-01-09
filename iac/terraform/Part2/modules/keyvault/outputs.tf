@@ -3,11 +3,11 @@ output "keyVaultName" {
 }
 
 output "identityDBConnectionSecretURI" {
-  value = azurerm_key_vault_secret.kv_secret_identity.versionless_id
+  value = azurerm_key_vault_secret.kv_secret_identity.id
 }
 
 output "managerDBConnectionSecretURI" {
-  value = azurerm_key_vault_secret.kv_secret_cm.versionless_id
+  value = azurerm_key_vault_secret.kv_secret_cm.id
 }
 
 output "keyVaultId" {
