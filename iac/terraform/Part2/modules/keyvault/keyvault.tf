@@ -25,20 +25,10 @@ resource "azurerm_key_vault_secret" "kv_secret_identity" {
   name         = "IdentityDbConnectionSecret"
   value        = local.dbConnectionString
   key_vault_id = azurerm_key_vault.cm_kv.id
-
-  depends_on = [ azurerm_role_assignment.kv_access_current_user ]
 }
 
 resource "azurerm_key_vault_secret" "kv_secret_cm" {
   name         = "ContactManagerDbConnectionSecret"
   value        = local.dbConnectionString
   key_vault_id = azurerm_key_vault.cm_kv.id
-
-  depends_on = [ azurerm_role_assignment.kv_access_current_user ]
-}
-
-resource "azurerm_role_assignment" "kv_access_current_user" {
-  scope                = azurerm_key_vault.cm_kv.id
-  role_definition_name = "Key Vault Secrets User"
-  principal_id         = data.azurerm_client_config.current.object_id
 }
