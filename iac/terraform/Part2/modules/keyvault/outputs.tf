@@ -9,3 +9,7 @@ output "identityDBConnectionSecretURI" {
 output "managerDBConnectionSecretURI" {
   value = azurerm_key_vault_secret.kv_secret_cm.versionless_id
 }
+
+output "keyVaultId" {
+  value = azurerm_key_vault.cm_kv.id
+}
