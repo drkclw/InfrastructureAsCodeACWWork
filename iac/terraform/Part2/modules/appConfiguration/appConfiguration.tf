@@ -1,7 +1,7 @@
 data "azurerm_client_config" "current" {}
 
 data "azurerm_windows_web_app" "cm_webapp" {
-  name                = "${var.webAppName}${var.uniqueIdentifier}"
+  name                = "${var.webAppName}-${var.uniqueIdentifier}"
   resource_group_name = var.resourceGroupName
 }
 
