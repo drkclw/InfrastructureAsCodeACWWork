@@ -59,6 +59,8 @@ module "appService" {
   managerDBSecretURI  = module.keyvault.managerDBConnectionSecretURI
   keyVaultId          = module.keyvault.keyVaultId
   appConfigConnection = module.appConfiguration.appConfigEndpoint
+
+  depends_on = [ module.applicationInsights ]
 }
 
 module "appConfiguration" {
