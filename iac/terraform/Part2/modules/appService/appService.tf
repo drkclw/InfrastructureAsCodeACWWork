@@ -32,7 +32,7 @@ resource "azurerm_windows_web_app" "cm_webapp" {
     "ConnectionStrings:DefaultConnection" = "@Microsoft.KeyVault(SecretUri=${var.defaultDBSecretURI})"
     "ConnectionStrings:MyContactManager"  = "@Microsoft.KeyVault(SecretUri=${var.managerDBSecretURI})"
     "AzureAppConfigConnection"            = var.appConfigConnection
-    "APPINSIGHTS:CONNECTIONSTRING"        = data.azurerm_application_insights.cm_app_insights.connection_string
+    "APPINSIGHTS:CONNECTIONSTRING"        = var.appInsightsConnString
     "WEBSITE_ENABLE_SYNC_UPDATE_SITE"     = "true"
     "WEBSITE_RUN_FROM_PACKAGE"            = "1"
   }
