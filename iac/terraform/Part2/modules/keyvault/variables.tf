@@ -29,6 +29,16 @@ variable "keyVaultName" {
     nullable  = false
 }
 
+variable "fqdn" {
+   type      = string
+   sensitive = true
+}
+
+variable "adminLogin" {
+   type      = string
+   sensitive = true
+}
+
 variable "uniqueIdentifier" {
     type      = string
     nullable  = false

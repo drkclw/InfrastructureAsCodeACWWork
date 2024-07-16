@@ -1,7 +1,7 @@
-data "azurerm_application_insights" "cm_app_insights" {
+/*data "azurerm_application_insights" "cm_app_insights" {
   name                = var.appInsightsName
   resource_group_name = var.resourceGroupName
-}
+}*/
 
 resource "azurerm_service_plan" "cm_hosting_plan" {
   name                = "${var.appServicePlanName}-${var.uniqueIdentifier}"

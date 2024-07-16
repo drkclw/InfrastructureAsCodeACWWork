@@ -47,3 +47,9 @@ variable "appConfigConnection" {
     type     = string
     nullable = false
 }
+
+variable "appInsightsConnString" {
+    type      = string
+    nullable  = false
+    sensitive = true
+}

@@ -1,9 +1,9 @@
 data "azurerm_client_config" "current" {}
 
-data "azurerm_mssql_server" "cm_sql_server" {
+/*data "azurerm_mssql_server" "cm_sql_server" {
   resource_group_name = var.resourceGroupName
   name                = "${var.sqlServerName}${var.uniqueIdentifier}"
-}
+}*/
 
 locals {
   dbConnectionString = "Server=tcp:${data.azurerm_mssql_server.cm_sql_server.fully_qualified_domain_name},1433;Initial Catalog=${var.sqlDatabaseName};Persist Security Info=False;User ID=${data.azurerm_mssql_server.cm_sql_server.administrator_login};Password=${var.sqlServerPwd};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"  

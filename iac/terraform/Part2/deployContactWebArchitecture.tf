@@ -44,21 +44,24 @@ module "keyvault" {
   sqlDatabaseName   = var.sqlDatabaseName
   uniqueIdentifier  = var.uniqueIdentifier
   keyVaultName      = var.keyVaultName
+  fqdn              = module.sqlServer.fqdn
+  adminLogin        = module.sqlServer.adminLogin
 }
 
 module "appService" {
   source = "./modules/appService"
 
-  resourceGroupName   = azurerm_resource_group.rg-contact-web-application.name
-  location            = azurerm_resource_group.rg-contact-web-application.location
-  appInsightsName     = var.appInsightsName
-  uniqueIdentifier    = var.uniqueIdentifier
-  appServicePlanName  = var.appServicePlanName
-  webAppName          = var.webAppName
-  defaultDBSecretURI  = module.keyvault.identityDBConnectionSecretURI
-  managerDBSecretURI  = module.keyvault.managerDBConnectionSecretURI
-  keyVaultId          = module.keyvault.keyVaultId
-  appConfigConnection = module.appConfiguration.appConfigEndpoint
+  resourceGroupName     = azurerm_resource_group.rg-contact-web-application.name
+  location              = azurerm_resource_group.rg-contact-web-application.location
+  appInsightsName       = var.appInsightsName
+  uniqueIdentifier      = var.uniqueIdentifier
+  appServicePlanName    = var.appServicePlanName
+  webAppName            = var.webAppName
+  defaultDBSecretURI    = module.keyvault.identityDBConnectionSecretURI
+  managerDBSecretURI    = module.keyvault.managerDBConnectionSecretURI
+  keyVaultId            = module.keyvault.keyVaultId
+  appConfigConnection   = module.appConfiguration.appConfigEndpoint
+  appInsightsConnString = module.appInsights.appInsightsConnString
 }
 
 module "appConfiguration" {
