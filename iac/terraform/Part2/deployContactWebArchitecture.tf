@@ -59,8 +59,6 @@ module "appService" {
   managerDBSecretURI  = module.keyvault.managerDBConnectionSecretURI
   keyVaultId          = module.keyvault.keyVaultId
   appConfigConnection = module.appConfiguration.appConfigEndpoint
-
-  depends_on = [ module.applicationInsights ]
 }
 
 module "appConfiguration" {
@@ -74,6 +72,5 @@ module "appConfiguration" {
   managerDbSecretURI   = module.keyvault.managerDBConnectionSecretURI
   keyVaultId           = module.keyvault.keyVaultId
   appConfigStoreName   = var.appConfigStoreName
-
-  depends_on = [ module.appService ]
+  appPrincipalId       = module.appService.principal_id
 }
