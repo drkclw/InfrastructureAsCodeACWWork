@@ -17,7 +17,7 @@ env:
   # set this to the dotnet version to use
   DOTNET_VERSION: '6.0.x' 
   # Put your app name here
-  AZURE_WEB_APP_NAME: 'ContactWebTerraform-20240109sam' 
+  AZURE_WEB_APP_NAME: 'ContactWebTerraform-20240716sam' 
   # staging by default but you could change to Production if you are not creating a slot 
   AZURE_WEB_APP_SLOT: 'Production' 
   #Make sure you create a secret with the publish profile named exactly as below
