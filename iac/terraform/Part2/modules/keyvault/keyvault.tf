@@ -6,7 +6,7 @@ data "azurerm_client_config" "current" {}
 }*/
 
 locals {
-  dbConnectionString = "Server=tcp:${data.azurerm_mssql_server.cm_sql_server.fully_qualified_domain_name},1433;Initial Catalog=${var.sqlDatabaseName};Persist Security Info=False;User ID=${data.azurerm_mssql_server.cm_sql_server.administrator_login};Password=${var.sqlServerPwd};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"  
+  dbConnectionString = "Server=tcp:${var.fqdn},1433;Initial Catalog=${var.sqlDatabaseName};Persist Security Info=False;User ID=${var.adminLogin};Password=${var.sqlServerPwd};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"  
 }
 
 resource "azurerm_key_vault" "cm_kv" {
