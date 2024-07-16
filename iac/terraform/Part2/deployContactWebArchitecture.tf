@@ -74,4 +74,6 @@ module "appConfiguration" {
   managerDbSecretURI   = module.keyvault.managerDBConnectionSecretURI
   keyVaultId           = module.keyvault.keyVaultId
   appConfigStoreName   = var.appConfigStoreName
+
+  depends_on = [ module.appService ]
 }
