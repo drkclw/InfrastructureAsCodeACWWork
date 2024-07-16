@@ -1,9 +1,9 @@
 data "azurerm_client_config" "current" {}
 
-data "azurerm_windows_web_app" "cm_webapp" {
+/*data "azurerm_windows_web_app" "cm_webapp" {
   name                = "${var.webAppName}-${var.uniqueIdentifier}"
   resource_group_name = var.resourceGroupName
-}
+}*/
 
 resource "azurerm_app_configuration" "cm_app_config" {
   name                       = "${var.appConfigStoreName}-${var.uniqueIdentifier}"
@@ -23,7 +23,8 @@ resource "azurerm_app_configuration" "cm_app_config" {
 resource "azurerm_role_assignment" "app_config_access_webapp" {
   scope                = azurerm_app_configuration.cm_app_config.id
   role_definition_name = "App Configuration Data Reader"
-  principal_id         = data.azurerm_windows_web_app.cm_webapp.identity[0].principal_id
+  //principal_id         = data.azurerm_windows_web_app.cm_webapp.identity[0].principal_id
+  principal_id         = var.appPrincipalId  
 }
 
 resource "azurerm_role_assignment" "kv_access_appconfig" {

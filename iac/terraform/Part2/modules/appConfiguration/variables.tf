@@ -37,3 +37,8 @@ variable "keyVaultId" {
     type     = string
     nullable = false
 }
+
+variable "appPrincipalId" {
+    type     = string
+    nullable = false
+}
